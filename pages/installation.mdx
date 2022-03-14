@@ -78,7 +78,7 @@ DO_SPACES_BUCKET=YOUR_DO_SPACES_BUCKET
 
 That way if you deploy to the DigitalOcean App platform, your uplodas will be stored to a persistant volume so you won't loose then during the next deploy.
 
-# Sample Data
+## 👨‍💻 Sample Data
 
 If you wish to setup a sample application you may run `php artisan migrate:refresh --seed`. This will load the application with some sample data from the kick-ass sit-com **Silicon Valley** 👇
 
@@ -89,11 +89,9 @@ You may login with any user with the password: `password123`, example:
 **email** - richard[at]piedpiper.com
 **password** - password123
 
-# 🤓 Development Tips
+## 🤓 Development Tips
 
-## Install the NPM dependencies:
-
-## Front-end Assets
+### Front-end Assets
 
 In order to compile the front-end assets you'll want to install the node dependencies by running the following command in the root directory:
 
@@ -113,7 +111,7 @@ When you are ready to minify the assets and prepare it for production you will r
 npm run production
 ```
 
-## Wallet Assets
+### Wallet Assets
 
 The wallet javascript functionality has been separated into it's own asset watcher and builder in order to keep things simpler. You can find these assets located at `/public/wallet`.
 
