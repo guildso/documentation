@@ -12,6 +12,20 @@ We utilize the ["Deploy to DigitalOcean" Button](https://www.digitalocean.com/do
 
 ### ☁ DigitalOcean Spaces
 
+You can utilize the DigitalOcean Spaces to store your static file uploads like profile pictures and etc.
+
+In order to use Spaces make sure to add the following ENV variables:
+
+```
+DO_SPACES=true
+DO_SPACES_KEY=YOUR_DO_SPACES_KEY
+DO_SPACES_SECRET=YOUR_DO_SPACES_SECRET
+DO_SPACES_ENDPOINT=YOUR_DO_SPACES_ENDPOINT
+DO_SPACES_REGION=YOUR_DO_SPACES_REGION
+DO_SPACES_BUCKET=YOUR_DO_SPACES_BUCKET
+```
+
+
 ### Create a Database:
 
 During the installation we need to use a MySQL database. You will need to create a new database and save the credentials for the next step.
