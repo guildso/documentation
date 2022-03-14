@@ -2,6 +2,57 @@
 
 Guild.so is based on Laravel 8 and Jetstream so you can run it just like a standard Laravel application. Here are 2 ways of running Guild.so:
 
+## 💻 Local Installation
+
+You will need to have the default requirements for a Laravel 8 application on your machine. Valet is a good solution to get you up and running quickly on your local server.
+
+After your machine is setup for any Laravel application, you'll want to clone the repo into your sites folder.
+
+```
+git clone https://github.com/guildso/guild
+```
+
+After cloning the repo to your machine we will want to create a new database for the application 👇
+
+### Create a Database:
+
+During the installation we need to use a MySQL database. You will need to create a local database and add the crendentials to your environment `.env` file.
+
+### Update the environment `.env` file
+
+Copy the `.env.example` file to `.env` and update your Database details in there:
+
+```
+APP_URL=http://guild.test
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=guild
+DB_USERNAME=guild
+DB_PASSWORD=guild_password
+```
+
+Great! next we'll need to install the composer dependencies.
+
+### Composer Install
+
+We need to include all our PHP vendor dependencies by running the following command:
+
+```
+composer install
+```
+
+### Migrate Database
+
+Finally we'll want to run our database migrations with the following command.
+
+```
+php artisan migrate
+```
+
+That's it! You should now be able to visit the application in your browser to setup your Company Info and User Account.  🎉
+
 ## 🐳 Install on DigitalOcean
 
 We utilize the ["Deploy to DigitalOcean" Button](https://www.digitalocean.com/docs/app-platform/how-to/add-deploy-do-button) to deploy to the App Platform:
@@ -27,47 +78,51 @@ DO_SPACES_BUCKET=YOUR_DO_SPACES_BUCKET
 
 That way if you deploy to the DigitalOcean App platform, your uplodas will be stored to a persistant volume so you won't loose then during the next deploy.
 
-## ✊ Manual Installation
+# Sample Data
 
-You can use the LaraSail script to get your Linux server ready for Laravel 8:
+If you wish to setup a sample application you may run `php artisan migrate:refresh --seed`. This will load the application with some sample data from the kick-ass sit-com **Silicon Valley** 👇
 
-[View On Github](https://github.com/thedevdojo/larasail)
+![Sample App Screenshot](https://cdn.devdojo.com/images/february2022/browser-mockup-dark.png)
 
-Once your server is up and running use `git clone` to clone the repositry and do a standard Laravel installation:
+You may login with any user with the password: `password123`, example:
 
-### Create a Database:
+**email** - richard@piedpiper.com
+**password** - password123
 
-During the installation we need to use a MySQL database. You will need to create a new database and save the credentials for the next step.
+# 🤓 Development Tips
 
-### Update the `.env` file
+## Install the NPM dependencies:
 
-Copy the `.env.example` file to `.env` and update your Database details in there:
+## Front-end Assets
 
-```
-APP_URL=http://guild.test
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=guild
-DB_USERNAME=guild
-DB_PASSWORD=guild_password
-```
-
-### Composer Install
+In order to compile the front-end assets you'll want to install the node dependencies by running the following command in the root directory:
 
 ```
-composer install
+npm install
 ```
 
-### Install the NPM dependencies:
+You can then run the following command to compile and watch for changes:
 
 ```
-npm install && npm run dev
+npm run watch
 ```
 
-### Migrate Database
+When you are ready to minify the assets and prepare it for production you will run:
 
 ```
-php artisan migrate
+npm run production
 ```
+
+## Wallet Assets
+
+The wallet javascript functionality has been separated into it's own asset watcher and builder in order to keep things simpler. You can find these assets located at `/public/wallet`.
+
+You can install the node dependencies by running the following command in the `public/wallet` directory:
+
+```
+npm install
+```
+
+You can then compile the assets the same way as above 👆, by using the `npm run watch` and `npm run production` commands.
+
+That's it for the development tips, but there will probably be more to come 😉
