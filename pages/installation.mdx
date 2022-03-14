@@ -6,7 +6,7 @@ Guild.so is based on Laravel 8 and Jetstream so you can run it just like a stand
 
 We utilize the ["Deploy to DigitalOcean" Button](https://www.digitalocean.com/docs/app-platform/how-to/add-deploy-do-button) to deploy to the App Platform:
 
-
+[![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/thedevdojo/guild/tree/main&refcode=dc19b9819d06)
 
 > **NOTE: This repository contains a pre-generated application key stored in the `.do/deploy.template.yaml` YAML file. During the deployment make sure to generate a new App Key and use it instead of the dummy value!**
 
@@ -23,51 +23,4 @@ DO_SPACES_SECRET=YOUR_DO_SPACES_SECRET
 DO_SPACES_ENDPOINT=YOUR_DO_SPACES_ENDPOINT
 DO_SPACES_REGION=YOUR_DO_SPACES_REGION
 DO_SPACES_BUCKET=YOUR_DO_SPACES_BUCKET
-```
-
-That way if you deploy to the DigitalOcean App platform, your uplodas will be stored to a persistant volume so you won't loose then during the next deploy.
-
-## ✊ Manual Installation
-
-You can use the LaraSail script to get your Linux server ready for Laravel 8:
-
-https://github.com/thedevdojo/larasail
-
-Once your server is up and running use `git clone` to clone the repositry and do a standard Laravel installation:
-
-* Create a Database:
-
-During the installation we need to use a MySQL database. You will need to create a new database and save the credentials for the next step.
-
-* Update the `.env` file
-
-Copy the `.env.example` file to `.env` and update your Database details in there:
-
-```
-APP_URL=http://guild.test
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=guild
-DB_USERNAME=guild
-DB_PASSWORD=guild_password
-```
-
-* Composer Install
-
-```
-composer install
-```
-
-* Install the NPM dependencies:
-
-```
-npm install && npm run dev
-```
-
-* Migrate Database
-
-```
-php artisan migrate
 ```
