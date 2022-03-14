@@ -8,7 +8,7 @@ You will need to have the default requirements for a Laravel 8 application on yo
 
 After your machine is setup for any Laravel application, you'll want to clone the repo into your sites folder.
 
-```
+```bash
 git clone https://github.com/guildso/guild
 ```
 
@@ -22,7 +22,7 @@ During the installation we need to use a MySQL database. You will need to create
 
 Copy the `.env.example` file to `.env` and update your Database details in there:
 
-```
+```bash
 APP_URL=http://guild.test
 
 DB_CONNECTION=mysql
@@ -39,7 +39,7 @@ Great! next we'll need to install the composer dependencies.
 
 We need to include all our PHP vendor dependencies by running the following command:
 
-```
+```bash
 composer install
 ```
 
@@ -47,7 +47,7 @@ composer install
 
 Finally we'll want to run our database migrations with the following command.
 
-```
+```bash
 php artisan migrate
 ```
 
@@ -67,7 +67,7 @@ You can utilize the DigitalOcean Spaces to store your static file uploads like p
 
 In order to use Spaces make sure to add the following ENV variables:
 
-```
+```bash
 DO_SPACES=true
 DO_SPACES_KEY=YOUR_DO_SPACES_KEY
 DO_SPACES_SECRET=YOUR_DO_SPACES_SECRET
@@ -95,19 +95,19 @@ You may login with any user with the password: `password123`, example:
 
 In order to compile the front-end assets you'll want to install the node dependencies by running the following command in the root directory:
 
-```
+```bash
 npm install
 ```
 
 You can then run the following command to compile and watch for changes:
 
-```
+```bash
 npm run watch
 ```
 
 When you are ready to minify the assets and prepare it for production you will run:
 
-```
+```bash
 npm run production
 ```
 
@@ -117,7 +117,7 @@ The wallet javascript functionality has been separated into it's own asset watch
 
 You can install the node dependencies by running the following command in the `public/wallet` directory:
 
-```
+```bash
 npm install
 ```
 
