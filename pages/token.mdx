@@ -1,15 +1,13 @@
-# 🎟 Your Solana Token
+# 🎟 Create a Solana Token
 
-Here you will learn how to create your own SPL token to reward users with your own token 🔥
+Here you will learn how to create your own SPL token to reward users with your own token 🔥 We are going to use the [The Solana Program Library](https://spl.solana.com/) (SPL) to create this token.
 
-We are going to use the [The Solana Program Library](https://spl.solana.com/) (SPL) to create this token.
-
-## 🚲 Prerequisites
+## 📋 Prerequisites
 
 - A new Linux server, for this example we will use Ubuntu 21.10 with at least 2GB of RAM. If you wish to use this same server to host your Laravel application, you may want to check out [Larasail](https://github.com/thedevdojo/larasail)
 - A small amount of SOL to create your new token [(Buy SOL Here)](https://www.coinbase.com/join/iliev_pt)
 
-# 💽 Installing Solana
+## 💽 Install Solana
 
 To install Solana just run the following command:
 
@@ -27,9 +25,9 @@ solana --version
 
 After a successful install, `solana-install update` may be used to easily update the Solana software to a newer version at any time.
 
-# 📔 Create a new wallet to hold your SOL
+## 📔 Create a New Wallet
 
-The SOL will be required to pay the small fee for creating a new token and making your transactions.
+This new wallet will be created to hold your SOL, wich is needed to pay the small fee for creating a new token and making your transactions.
 
 To create a new wallet, run the following command:
 
@@ -41,7 +39,7 @@ Once you run the command, you will be prompted to enter a password to encrypt yo
 
 The output of the command will be a new wallet file, which you can use to send and receive SOL.
 
-```
+```bash
 pubkey: 9ZNTfG4NyQgxy2SWjSiQoUyBPEvXT2xo7fKc5hPYYJ7b
 ```
 
@@ -51,7 +49,7 @@ Make sure to also save the recovery phrase in a secure location as it will be re
 
 To check the balance of your wallet, run the following command:
 
-```
+```bash
 solana balance
 ```
 
@@ -59,9 +57,9 @@ The output of the command will be the balance of your wallet, which should be 0 
 
 Once you have your wallet, you can send SOL to this new wallet as it will be needed to create your new token.
 
-# 💸 Send some SOL to your wallet
+## 💵 Add SOL to Wallet
 
-Go to your favorite cryptocurrency exchange and buy some SOL.
+In this step we'll be adding some SOL to your wallet. This is needed for small transaction fees when sending/transferring/creating tokens. Go to your favorite cryptocurrency exchange and buy some SOL.
 
 Then send the SOL to your wallet.
 
@@ -69,17 +67,17 @@ Keep in mind that it is recomended to have least $5 worth of SOL to create a new
 
 Then once you have sent the SOL, you can check the balance of your wallet again:
 
-```
+```bash
 solana balance
 ```
 
 The output of the command will be the balance of your wallet, which should be greater than 0 as you have sent some SOL to your wallet.
 
-# 🦀 Installing Rust
+## 🦀 Install Rust
 
 We will also need to have rust installed on our machine to run a few commands, including the `spl-token` program. You can install Rust by running the following command:
 
-```
+```bash
 curl https://sh.rustup.rs -sSf | sh
 ```
 
@@ -87,19 +85,19 @@ This might take a while ⏳ so be patient 🍻
 
 Once you've installed Rust, you may need to run the command `export` in order to add the Rust binary to your `PATH`. Alternatively, you can log out and log back in to your server to make sure the Rust binary is added to your `PATH`.
 
-## Installing the `spl-token-cli`
+### Installing the `spl-token-cli`
 
 > Only on Ubuntu Machine: The `spl-token-cli` is a command line interface to the SPL program. Before you can use the `spl-token-cli` you may need to install the following dependencies: `sudo apt install libudev-dev libssl-dev pkg-config build-essential`
 
 To install the `spl-token-cli` by running the following command:
 
-```
+```bash
 cargo install spl-token-cli
 ```
 
 Keep in mind that this will take a while, so be patient.
 
-# 🪙 Create Your New Token
+## 🪙 Create a New Token
 
 The next command will use some of your SOL to create a new token.
 
@@ -120,13 +118,13 @@ The string after the `Creating token` is your new token.
 
 Make sure to note down the token address and the signature as you will need them later on.
 
-# 👤 Creating an account for your token
+## 👤 Create an Account
 
 Next we will create an account that will hold the token.
 
 To create an account for your token, run the following command:
 
-```
+```bash
 spl-token create-account AQoKYV7tYpTrFZN6P5oUufbQKAUr9mNYGe1TTJC9wajM
 ```
 
@@ -136,7 +134,7 @@ This will also require some SOL but very little.
 
 The output of the command will be the new account address:
 
-```
+```bash
 # $ spl-token create-account AQoKYV7tYpTrFZN6P5oUufbQKAUr9mNYGe1TTJC9wajM
 
 Creating account 7UX2i7SucgLMQcfZ75s3VXmZZY4YRUyJN9X1RgfMoDUi
@@ -145,7 +143,7 @@ Signature: 42Sa5eK9dMEQyvD9GMHuKxXf55WLZ7tfjabUKDhNoZRAxj9MsnN7omriWMEHXLea3aYpj
 
 Make sure to also note down the account address and the signature as you will need them later on.
 
-# 💶 Minting Tokens
+## 💶 Minting Tokens
 
 Once you have created your account, and the token, you can mint tokens 🏦
 
@@ -153,7 +151,7 @@ Minting is basically the process of creating new tokens.
 
 To mint tokens, run the following command:
 
-```
+```bash
 spl-token mint AQoKYV7tYpTrFZN6P5oUufbQKAUr9mNYGe1TTJC9wajM 1000000 7UX2i7SucgLMQcfZ75s3VXmZZY4YRUyJN9X1RgfMoDUi
 ```
 
@@ -166,19 +164,19 @@ Rundown of the command:
 
 To check the balance of your account, run the following command:
 
-```
+```bash
 spl-token accounts
 ```
 
 Output:
 
-```
+```bash
 Token                                         Balance
 ------------------------------------------------------------
 AQoKYV7tYpTrFZN6P5oUufbQKAUr9mNYGe1TTJC9wajM  1000000
 ```
 
-# 💸 Sending tokens
+## 💸 Sending tokens
 
 Lastly, you can send tokens to other accounts. Let's send some tokens to another account, for example you could create a new wallet by using the [Phantom Wallet](https://phantom.app/)
 
@@ -186,7 +184,7 @@ Once you have installed the Phantom Wallet browser extension, it will create a n
 
 Then you can send tokens to your phantom wallet by running the following command:
 
-```
+```bash
 spl-token transfer --allow-unfunded-recipient --fund-recipient AQoKYV7tYpTrFZN6P5oUufbQKAUr9mNYGe1TTJC9wajM 10 23My7Z1zYoMBWn9PPGjcbP9ExKSheJw7dKHB6oHB9xSt
 ```
 
@@ -201,18 +199,18 @@ Rundown of the command:
 
 As Solana is very fast, you will see the tokens being transferred very quickly and they will be available in the recipient account.
 
-# 🏦 Adding a limit to your token (Optional)
+## 🏦 Adding a limit to your token (Optional)
 
 You could set a hard limit on the amount of tokens that can be minted.
 
 This is a personal choice, but you could set a limit on the amount of tokens that can be minted with the following command:
 
-```
+```bash
 spl-token set-limit AQoKYV7tYpTrFZN6P5oUufbQKAUr9mNYGe1TTJC9wajM 1000000
 ```
 
 
-# ✅ Add Your Token to the Solana Token List
+## ✅ Add Your Token to the Solana Token List
 
 Your token has now been created and you can search for it in the [Solana Blockchain Explorer](https://explorer.solana.com/); however, you will probably not see much information about your new token in the explorer until you add it to the Solana Token List. In this step we will show you how to add it to the list.
 
@@ -222,7 +220,7 @@ Before moving on with these steps there are a few things you need to have before
 - A name for your token: To check if a token name is available, check the current list of tokens in the [Solana Token List repository](https://github.com/solana-labs/token-list) in the `src/tokens` folder in a file called `solana.tokenlist.json`.
 - You would need to have [GitHub account](https://github.com/).
 
-## 🍴 Forking the Solana Token List Repository
+### Fork the Solana Token List Repository
 
 Go to the [Solana Token List repository](https://github.com/solana-labs/token-list) and click on the `Fork` button.
 
@@ -238,7 +236,7 @@ To do this follow the steps below:
 - Then go to the `src/tokens` directory and edit the `solana.tokenlist.json` file. Every single token is registered in this file.
 - Edit the `solana.tokenlist.json` file and scroll down to the bottom of the file and add your token by adding the follwoing details for your token:
 
-```
+```bash
 {
     chainId: 101,
     address: "YOUR_TOKEN_ADDRESS",
@@ -260,13 +258,13 @@ In a few hours, your token will be added to the list and you can see it in the [
 
 
 
-# Troubleshooting
+## 🛠 Troubleshooting
 
 ## Server less than 1GB of RAM
 
 If you have less than 1GB of RAM, you should add a swap file to your server. You can do that by running the following commands:
 
-```
+```basj
 sudo fallocate -l 2G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
@@ -275,6 +273,6 @@ sudo swapon /swapfile
 
 Then you can add the swap file to your `/etc/fstab` file:
 
-```
+```basj
 /swapfile none swap sw 0 0
 ```
