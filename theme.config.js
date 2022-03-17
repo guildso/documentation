@@ -1,7 +1,7 @@
 export default {
   github: 'https://github.com/guildso/guild',
   docsRepositoryBase: 'https://github.com/guildso/documentation',
-  titleSuffix: ' – Guild',
+  titleSuffix: ' – Gzuild',
   logo: (
     <>
       <span className="mr-2 font-extrabold hidden md:inline">Guild</span>
